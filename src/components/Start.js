@@ -2,11 +2,8 @@ import React, { useContext, useState } from 'react';
 import TypeContext from '../context/typeContext';
 
 const Start = () => {
-  const { started, currName, getWord, setCurrName, setStart } = useContext(
-    TypeContext
-  );
+  const { started, getWord, setCurrName, setStart } = useContext(TypeContext);
   const [name, setName] = useState('');
-  // const yourName = useRef(null)
   const classes = ['start-container'];
   if (started) {
     classes.push('hide');
@@ -17,14 +14,6 @@ const Start = () => {
       if (name === '') {
         alert('Enter your name');
       } else {
-        // gameContainer.classList.add('started');
-        // timeContainer.classList.add('started');
-        // scoreContainer.classList.add('started');
-        // yourName.current.focus();
-
-        // setTimeout(() => {
-        //   currTimeInt = setInterval(updtateTime, 1000);
-        // }, 800);
         setStart();
         setCurrName(name);
         getWord();

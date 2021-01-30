@@ -7,6 +7,8 @@ import {
   SHOW_SETTING,
   SET_CURR_NAME,
   SET_START,
+  CORRECT,
+  UPDATE_TIME,
 } from './types';
 
 const TypeState = ({ children }) => {
@@ -18,9 +20,9 @@ const TypeState = ({ children }) => {
     setting: true,
     started: false,
     word: [],
+    gameOver: false,
   };
   const [state, dispatch] = useReducer(TypeReducer, initialState);
-
   const showSetting = () => {
     dispatch({ type: SHOW_SETTING });
   };
@@ -34,7 +36,6 @@ const TypeState = ({ children }) => {
       `https://random-word-api.herokuapp.com/word?number=1`
     );
     const word = await res.json();
-    console.log(word);
     dispatch({ type: GET_WORD, payload: word });
   };
 
@@ -44,6 +45,18 @@ const TypeState = ({ children }) => {
 
   const setStart = () => {
     dispatch({ type: SET_START });
+    setTimeout(() => {
+      setInterval(updtateTime, 1000);
+    }, 800);
+  };
+
+  const correct = () => {
+    getWord();
+    dispatch({ type: CORRECT });
+  };
+
+  const updtateTime = () => {
+    dispatch({ type: UPDATE_TIME });
   };
 
   return (
@@ -56,11 +69,13 @@ const TypeState = ({ children }) => {
         setting: state.setting,
         started: state.started,
         word: state.word,
+        gameOver: state.gameOver,
         showSetting,
         setDifficulty,
         getWord,
         setCurrName,
         setStart,
+        correct,
       }}>
       {children}
     </TypeContext.Provider>

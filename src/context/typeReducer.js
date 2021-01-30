@@ -4,6 +4,8 @@ import {
   SET_CURR_NAME,
   GET_WORD,
   SET_START,
+  UPDATE_TIME,
+  CORRECT,
 } from './types';
 
 const typeReducer = (state, action) => {
@@ -32,7 +34,33 @@ const typeReducer = (state, action) => {
       return {
         ...state,
         started: true,
+        setting: false,
       };
+    case CORRECT:
+      let exTime;
+      if (state.difficulty === 'easy') {
+        exTime = 10;
+      } else if (state.difficulty === 'medium') {
+        exTime = 5;
+      } else {
+        exTime = 3;
+      }
+
+      return {
+        ...state,
+        currTime: state.currTime + exTime,
+        score: state.score + 1,
+      };
+    case UPDATE_TIME:
+      if (state.currTime === 0) {
+        state.gameOver = true;
+      }
+      return {
+        ...state,
+        currTime: state.currTime - 1,
+        gameOver: state.gameOver,
+      };
+
     default:
       return state;
   }
