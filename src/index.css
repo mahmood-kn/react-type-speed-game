@@ -79,7 +79,7 @@ button:active {
   transform: translateY(-100%);
 }
 
-.setting-container #difficulty {
+.setting-container .difficulty {
   background-color: #a7c5e3;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -240,7 +240,7 @@ button:active {
   flex-direction: column;
 }
 
-.container .start-container #name {
+.container .start-container .name {
   width: 100%;
 }
 
