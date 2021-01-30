@@ -6,4 +6,4 @@ This is **React** version of [Type Speed Game](https://github.com/mahmood-kn/van
 
 ### Live demo
 
-Click [here](https://mahmood-kn.github.io/react-type-speed-game 'Type Speed Game') to see the live demo of this project.
+Click [here](https://mahmood-kn.github.io/react-type-speed-game/ 'Type Speed Game') to see the live demo of this project.
