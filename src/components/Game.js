@@ -16,7 +16,7 @@ const Game = () => {
   };
 
   const checkCorrect = (currWord) => {
-    if (currWord.toLowerCase() === word[0]) {
+    if (currWord.toLowerCase() === word.toLowerCase()) {
       correct();
       setInputType('');
     }
@@ -27,7 +27,7 @@ const Game = () => {
   return (
     <div className={classes.join(' ')}>
       <p>Type the following:</p>
-      <h1>{word[0]}</h1>
+      <h1>{word}</h1>
       <input
         ref={type}
         value={inputType}

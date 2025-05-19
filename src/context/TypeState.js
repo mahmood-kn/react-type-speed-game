@@ -32,10 +32,9 @@ const TypeState = ({ children }) => {
   };
 
   const getWord = async () => {
-    const res = await fetch(
-      `https://random-word-api.herokuapp.com/word?number=1`
-    );
-    const word = await res.json();
+    const res = await fetch(`https://random-words-api.vercel.app/word/`);
+    const wordObj = await res.json();
+    const word = wordObj.word;
     dispatch({ type: GET_WORD, payload: word });
   };
 
